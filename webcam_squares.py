@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Spyder Editor
-
 This is a temporary script file.
 """
 
@@ -10,18 +9,20 @@ import numpy as np
 import os
 
 # set current working director
-os.chdir(r"\Users\ab\Documents\GitHub\OpenCV-notes")
+os.chdir(r"\\ccsfs1\Users\abarlas\Documents\GitHub")
 
 
 # capture video (use 0 for webcam)
 cap = cv.VideoCapture(0)
 
 #baseline image
-baselin_image = None
+baseline_image = None
 
 while True:
     _, img = cap.read()
+    # baseline_image = img.copy()
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    baseline_image = gray.copy()
     gray = cv.GaussianBlur(gray, (25,25), cv.BORDER_DEFAULT)
     
     # Calculating the difference and image thresholding (aka gray minus image)
@@ -36,8 +37,8 @@ while True:
     for contour in contours:
         if cv.contourArea(contour) < 5000:
             continue
-        (x, y, w, h)=cv2.boundingRect(contour)
-        cv2.rectangle(frame, (x, y), (x+w, y+h), (0,255,0), 1)
+        (x, y, w, h)=cv.boundingRect(contour)
+        cv.rectangle(img, (x, y), (x+w, y+h), (0,255,0), 1)
         
     ## create rectangles
     # left side
