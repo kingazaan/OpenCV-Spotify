@@ -2,7 +2,7 @@
 # first, using spotify with gestures, in order to change song with a right/left swipe, volume up down, things like this
 # then secondly trying to use a sentiment analysis thing with nlp in order to have a page of text being read, give an emotion and spotify play music based on that emotion. Could be done for like 1 or 2 pages
 
-# steps needed for project 1
+# project 1
 Pseudocode:
 
 Sign up and create a Spotify Developer account: Go to the Spotify Developer Dashboard (https://developer.spotify.com/dashboard/) and sign up or log in with your existing Spotify account. Create a new application to obtain your client ID and client secret, which will be used for authentication.

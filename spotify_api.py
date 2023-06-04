@@ -6,7 +6,12 @@ from urllib.parse import urlparse, parse_qs
 from config import *
 import spotipy
 from spotipy import Spotify
-from spotipy.oauth2 import SpotifyOAuth
+from spotipy.oauth2 import SpotifyOAuth, SpotifyClientCredentials
+
+
+client_credentials_manager = SpotifyClientCredentials(client_id=SPOTIFY_CLIENT_ID, client_secret=SPOTIFY_CLIENT_SECRET) #, redirect_uri=redirect_uri)
+sp = spotipy.Spotify(client_credentials_manager)
+
 
 # def authenticate_spotify_api(client_id, client_secret, authorization_code, redirect_uri):
 #     # Set up the authorization code grant flow parameters
@@ -68,9 +73,4 @@ from spotipy.oauth2 import SpotifyOAuth
 # with socketserver.TCPServer(('localhost', PORT), CallbackHandler) as httpd:
 #     print('Callback server listening on port', PORT)
 #     httpd.serve_forever()
-
-
-sp = SpotifyOAuth(client_id=SPOTIFY_CLIENT_ID, client_secret=SPOTIFY_CLIENT_SECRET, redirect_uri=redirect_uri)
-access_token = sp.get_access_token()
-refresh_token = sp.refresh_access_token() # might be the wrong call method
 
